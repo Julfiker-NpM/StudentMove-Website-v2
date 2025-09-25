@@ -1,0 +1,236 @@
+/* Dashboard Styles */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom Navigation */
+.custom-navbar {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo-circle {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #007BFF, #28A745);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.main-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+  background: linear-gradient(135deg, #007BFF, #28A745);
+  color: white;
+}
+
+/* Main Greeting Section */
+.main-greeting-section {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.blue-text {
+  color: #007BFF;
+}
+
+.dashboard-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.profile-pic img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #007BFF;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic img:hover {
+  transform: scale(1.1);
+}
+
+/* Subscription CTA */
+.dashboard-cta-row {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-cta-btn {
+  background: linear-gradient(135deg, #007BFF, #28A745);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+  transition: all 0.3s ease;
+}
+
+.dashboard-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+  color: white;
+}
+
+/* Dashboard Sections */
+.dashboard-section,
+.recent-activity-section {
+  margin-bottom: 40px;
+}
+
+.dashboard-section h2,
+.recent-activity-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.dashboard-card.blue {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  color: white;
+}
+
+.dashboard-card.green {
+  background: linear-gradient(135deg, #28A745, #1e7e34);
+  color: white;
+}
+
+.dashboard-card.red {
+  background: linear-gradient(135deg, #DC3545, #c82333);
+  color: white;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.route-link {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.route-link:hover {
+  color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .main-menu {
+    gap: 15px;
+  }
+  
+  .profile-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}

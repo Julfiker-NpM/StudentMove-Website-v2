@@ -32,6 +32,13 @@ COPY . /var/www/html
 RUN chmod -R 755 /var/www/html/public/css
 RUN chmod -R 755 /var/www/html/public/js
 RUN chmod -R 755 /var/www/html/public/images
+RUN chmod -R 755 /var/www/html/public/pdf
+
+# Create public directories if they don't exist
+RUN mkdir -p /var/www/html/public/css
+RUN mkdir -p /var/www/html/public/js
+RUN mkdir -p /var/www/html/public/images
+RUN mkdir -p /var/www/html/public/pdf
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
@@ -41,6 +48,9 @@ RUN composer install --no-dev --optimize-autoloader
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
+RUN chmod -R 644 /var/www/html/public/css/*.css
+RUN chmod -R 644 /var/www/html/public/js/*.js
+RUN chmod -R 644 /var/www/html/public/images/*
 
 # Copy environment file for build
 COPY .env.example .env
@@ -66,11 +76,20 @@ RUN php artisan view:cache
 
 # Configure Apache
 RUN a2enmod rewrite
+RUN a2enmod headers
 
 # Set Apache document root to Laravel public directory
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+# Add Apache configuration for CSS/JS files
+RUN echo '<Directory "/var/www/html/public">' > /etc/apache2/conf-available/laravel.conf
+RUN echo '    Options Indexes FollowSymLinks' >> /etc/apache2/conf-available/laravel.conf
+RUN echo '    AllowOverride All' >> /etc/apache2/conf-available/laravel.conf
+RUN echo '    Require all granted' >> /etc/apache2/conf-available/laravel.conf
+RUN echo '</Directory>' >> /etc/apache2/conf-available/laravel.conf
+RUN a2enconf laravel
 
 # Expose port 80
 EXPOSE 80

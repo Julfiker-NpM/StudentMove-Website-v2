@@ -1,7 +1,7 @@
 <x-app-layout>
 
     @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @endpush
 
     <!-- Hero Section -->

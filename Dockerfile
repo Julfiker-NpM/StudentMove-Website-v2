@@ -53,26 +53,22 @@ RUN chmod -R 644 /var/www/html/public/js/*.js
 RUN chmod -R 644 /var/www/html/public/images/*
 
 # Copy environment file for build
-COPY .env.example .env
+COPY env.production.example .env
 
 # Set basic environment variables for build
 ENV APP_ENV=production
 ENV APP_DEBUG=false
-ENV DB_CONNECTION=mysql
+ENV DB_CONNECTION=sqlite
+ENV DB_DATABASE=/var/www/html/database/database.sqlite
 
 # Generate application key
 RUN php artisan key:generate
 
-# Run migrations
-RUN php artisan migrate --force
+# Skip migrations during build - will run at runtime
+# RUN php artisan migrate --force
 
-# Create storage link
-RUN php artisan storage:link
-
-# Clear and cache config
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
+# Make start script executable
+RUN chmod +x /var/www/html/start.sh
 
 # Configure Apache
 RUN a2enmod rewrite
@@ -94,5 +90,5 @@ RUN a2enconf laravel
 # Expose port 80
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Start with custom script
+CMD ["/var/www/html/start.sh"]

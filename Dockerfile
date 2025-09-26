@@ -25,11 +25,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy existing application directory contents
+# Copy application files
 COPY . /var/www/html
-
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www/html
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
@@ -57,7 +54,11 @@ RUN php artisan view:cache
 
 # Configure Apache
 RUN a2enmod rewrite
-COPY .docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Set Apache document root to Laravel public directory
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 # Expose port 80
 EXPOSE 80

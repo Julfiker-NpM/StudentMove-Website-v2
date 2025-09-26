@@ -28,6 +28,11 @@ WORKDIR /var/www/html
 # Copy application files
 COPY . /var/www/html
 
+# Ensure CSS and JS files are accessible
+RUN chmod -R 755 /var/www/html/public/css
+RUN chmod -R 755 /var/www/html/public/js
+RUN chmod -R 755 /var/www/html/public/images
+
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 

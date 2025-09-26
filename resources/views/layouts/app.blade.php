@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <!-- Site CSS (loaded after Bootstrap to override styles safely) -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!-- Animate.css for animations -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         
         <!-- Custom Styles -->
         <style>

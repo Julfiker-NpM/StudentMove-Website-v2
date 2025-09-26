@@ -2,7 +2,13 @@
 
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/original-index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/test.css') }}">
     @endpush
+
+    <!-- CSS Test Section -->
+    <div class="test-css-loading">
+        ✅ CSS Files Loading Successfully! If you see this styled box, CSS is working.
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section" id="home">

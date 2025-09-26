@@ -13,11 +13,11 @@
                     <p class="hero-subtitle">Plan your route. Track your bus. Arrive on time.</p>
                 
                     @auth
-                        <a href="{{ route('dashboard') }}" class="btn btn-success btn-lg">
+                        <a href="{{ route('dashboard') }}" class="cta-button">
                             Dashboard <i class="bi bi-arrow-right"></i>
                         </a>
                     @else
-                        <a href="{{ route('register') }}" class="btn btn-success btn-lg">
+                        <a href="{{ route('register') }}" class="cta-button">
                             Get Started <i class="bi bi-arrow-right"></i>
                         </a>
                     @endauth
@@ -119,7 +119,7 @@
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 customer support</li>
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile app access</li>
                             </ul>
-                            <a href="{{ route('subscription') }}" class="btn btn-outline-primary w-100">Choose Monthly</a>
+                            <a href="{{ route('subscription') }}" class="pricing-btn">Choose Monthly</a>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom notifications</li>
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Exclusive student discounts</li>
                             </ul>
-                            <a href="{{ route('subscription') }}" class="btn btn-primary w-100">Choose 6 Months</a>
+                            <a href="{{ route('subscription') }}" class="pricing-btn primary">Choose 6 Months</a>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Early access to new features</li>
                                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Free premium workshops</li>
                             </ul>
-                            <a href="{{ route('subscription') }}" class="btn btn-outline-primary w-100">Choose Yearly</a>
+                            <a href="{{ route('subscription') }}" class="pricing-btn">Choose Yearly</a>
                         </div>
                     </div>
                 </div>
@@ -174,8 +174,8 @@
 
             <div class="text-center mt-5">
                 <p class="text-muted mb-3">* Prices may vary based on your specific destination and route</p>
-                <a href="#contact" class="btn btn-success btn-lg">
-                    <i class="bi bi-chat-dots me-2"></i>Contact for Custom Pricing
+                <a href="#contact" class="cta-button">
+                    <i class="bi bi-chat-dots"></i> Contact for Custom Pricing
                 </a>
             </div>
         </div>
@@ -283,15 +283,15 @@
                     <h4>Contact Us</h4>
                     <form>
                         <div class="mb-2">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" class="contact-input" placeholder="Your Name" required>
                         </div>
                         <div class="mb-2">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" class="contact-input" placeholder="Your Email" required>
                         </div>
                         <div class="mb-2">
-                            <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+                            <textarea class="contact-textarea" rows="3" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success">Send Message</button>
+                        <button type="submit" class="cta-button">Send Message</button>
                     </form>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -306,8 +306,8 @@
                         <a href="#"><i class="bi bi-instagram fs-4"></i></a>
                     </div>
                     <form class="d-flex align-items-center">
-                        <input type="email" class="form-control me-2" placeholder="Subscribe to newsletter" aria-label="Newsletter">
-                        <button class="btn btn-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+                        <input type="email" class="newsletter-input" placeholder="Subscribe to newsletter" aria-label="Newsletter">
+                        <button class="newsletter-btn" type="submit"><i class="bi bi-send-fill"></i></button>
                     </form>
                 </div>
             </div>

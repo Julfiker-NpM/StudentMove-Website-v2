@@ -11,8 +11,6 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Test CSS -->
-        <link rel="stylesheet" href="{{ asset('css/test.css') }}" type="text/css">
         <!-- Main Site CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
         <!-- Bootstrap Icons -->
@@ -42,8 +40,8 @@
         <!-- Custom Styles -->
         @stack('styles')
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body>
+        <div>
             @include('layouts.navigation')
 
             <!-- Page Content -->

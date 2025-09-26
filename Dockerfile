@@ -38,6 +38,15 @@ RUN touch database/database.sqlite
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
 
+# Copy environment file for build
+COPY .env.example .env
+
+# Set basic environment variables for build
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV DB_CONNECTION=sqlite
+ENV DB_DATABASE=/var/www/html/database/database.sqlite
+
 # Generate application key
 RUN php artisan key:generate
 

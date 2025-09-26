@@ -2,6 +2,26 @@
 
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/original-index.css') }}">
+    <style>
+        .quick-nav-card {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+        .quick-nav-card:hover {
+            text-decoration: none;
+            color: inherit;
+            transform: translateY(-5px);
+        }
+        .quick-nav-card .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .quick-nav-card:hover .card {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
     @endpush
 
     <!-- Hero Section -->
@@ -240,6 +260,59 @@
                 <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Section -->
+    <section class="quick-nav-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Quick Access</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="{{ route('notifications') }}" class="quick-nav-card">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="bi bi-bell-fill text-primary mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">Notifications</h5>
+                                <p class="card-text">Get real-time bus alerts and updates</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="{{ route('messages') }}" class="quick-nav-card">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="bi bi-envelope-fill text-success mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">Contact Us</h5>
+                                <p class="card-text">Get help and support</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="{{ route('offers') }}" class="quick-nav-card">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="bi bi-gift-fill text-warning mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">Offers</h5>
+                                <p class="card-text">Check out special promotions</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="{{ route('next-bus-arrival') }}" class="quick-nav-card">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="bi bi-bus-front-fill text-info mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">Bus Tracking</h5>
+                                <p class="card-text">Track your bus in real-time</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

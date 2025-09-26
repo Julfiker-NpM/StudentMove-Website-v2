@@ -1,49 +1,29 @@
 <x-app-layout>
 
     @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/original-index.css') }}">
-    <style>
-        .quick-nav-card {
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s ease;
-        }
-        .quick-nav-card:hover {
-            text-decoration: none;
-            color: inherit;
-            transform: translateY(-5px);
-        }
-        .quick-nav-card .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-        .quick-nav-card:hover .card {
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     @endpush
 
     <!-- Hero Section -->
     <section class="hero-section" id="home">
-        <div class="container py-5 text-center">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-lg-start text-center">
-                    <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Smart Transportation for Dhaka City Students</h1>
-                    <p class="lead mb-4 animate__animated animate__fadeInUp">Plan your route. Track your bus. Arrive on time.</p>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Smart Transportation for Dhaka City Students</h1>
+                    <p class="hero-subtitle">Plan your route. Track your bus. Arrive on time.</p>
                 
                     @auth
-                        <a href="{{ route('dashboard') }}" class="btn btn-success btn-lg px-4 mb-3 animate__animated animate__pulse animate__infinite">
-                            Dashboard <i class="bi bi-arrow-right ms-2"></i>
+                        <a href="{{ route('dashboard') }}" class="btn btn-success btn-lg">
+                            Dashboard <i class="bi bi-arrow-right"></i>
                         </a>
                     @else
-                        <a href="{{ route('register') }}" class="btn btn-success btn-lg px-4 mb-3 animate__animated animate__pulse animate__infinite">
-                            Get Started <i class="bi bi-arrow-right ms-2"></i>
+                        <a href="{{ route('register') }}" class="btn btn-success btn-lg">
+                            Get Started <i class="bi bi-arrow-right"></i>
                         </a>
                     @endauth
                 </div>
-                <div class="col-lg-6 d-none d-lg-block text-end">
-                    <img src="{{ asset('images/home & schedula.png') }}" alt="Home and Schedule" class="illustration animate__animated animate__zoomIn" loading="lazy">
+                <div class="hero-image">
+                    <img src="{{ asset('images/home & schedula.png') }}" alt="Home and Schedule" class="illustration">
                 </div>
             </div>
         </div>
@@ -52,24 +32,18 @@
     <!-- Animated Statistics -->
     <section class="stats-section" id="stats">
         <div class="container">
-            <div class="row text-center justify-content-center">
-                <div class="col-md-4">
-                    <div class="stat-card">
-                        <h2 class="counter" data-target="12000">0</h2>
-                        <p>Students Served</p>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h2 class="counter" data-target="12000">0</h2>
+                    <p>Students Served</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-card">
-                        <h2 class="counter" data-target="25">0</h2>
-                        <p>University Routes</p>
-                    </div>
+                <div class="stat-card">
+                    <h2 class="counter" data-target="25">0</h2>
+                    <p>University Routes</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-card">
-                        <h2 class="counter" data-target="98">0</h2>
-                        <p>% On-time Arrival</p>
-                    </div>
+                <div class="stat-card">
+                    <h2 class="counter" data-target="98">0</h2>
+                    <p>% On-time Arrival</p>
                 </div>
             </div>
         </div>
@@ -265,54 +239,38 @@
     </section>
 
     <!-- Quick Navigation Section -->
-    <section class="quick-nav-section py-5">
+    <section class="quick-nav-section">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Quick Access</h2>
-            <div class="row">
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <a href="{{ route('notifications') }}" class="quick-nav-card">
-                        <div class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-bell-fill text-primary mb-3" style="font-size: 2rem;"></i>
-                                <h5 class="card-title">Notifications</h5>
-                                <p class="card-text">Get real-time bus alerts and updates</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <a href="{{ route('messages') }}" class="quick-nav-card">
-                        <div class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-envelope-fill text-success mb-3" style="font-size: 2rem;"></i>
-                                <h5 class="card-title">Contact Us</h5>
-                                <p class="card-text">Get help and support</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <a href="{{ route('offers') }}" class="quick-nav-card">
-                        <div class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-gift-fill text-warning mb-3" style="font-size: 2rem;"></i>
-                                <h5 class="card-title">Offers</h5>
-                                <p class="card-text">Check out special promotions</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <a href="{{ route('next-bus-arrival') }}" class="quick-nav-card">
-                        <div class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-bus-front-fill text-info mb-3" style="font-size: 2rem;"></i>
-                                <h5 class="card-title">Bus Tracking</h5>
-                                <p class="card-text">Track your bus in real-time</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <h2 class="section-title">Quick Access</h2>
+            <div class="quick-nav-grid">
+                <a href="{{ route('notifications') }}" class="quick-nav-card">
+                    <div class="card">
+                        <i class="bi bi-bell-fill" style="font-size: 2rem; color: #007BFF; margin-bottom: 15px;"></i>
+                        <h3>Notifications</h3>
+                        <p>Get real-time bus alerts and updates</p>
+                    </div>
+                </a>
+                <a href="{{ route('messages') }}" class="quick-nav-card">
+                    <div class="card">
+                        <i class="bi bi-envelope-fill" style="font-size: 2rem; color: #28A745; margin-bottom: 15px;"></i>
+                        <h3>Contact Us</h3>
+                        <p>Get help and support</p>
+                    </div>
+                </a>
+                <a href="{{ route('offers') }}" class="quick-nav-card">
+                    <div class="card">
+                        <i class="bi bi-gift-fill" style="font-size: 2rem; color: #FFC107; margin-bottom: 15px;"></i>
+                        <h3>Offers</h3>
+                        <p>Check out special promotions</p>
+                    </div>
+                </a>
+                <a href="{{ route('next-bus-arrival') }}" class="quick-nav-card">
+                    <div class="card">
+                        <i class="bi bi-bus-front-fill" style="font-size: 2rem; color: #17A2B8; margin-bottom: 15px;"></i>
+                        <h3>Bus Tracking</h3>
+                        <p>Track your bus in real-time</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

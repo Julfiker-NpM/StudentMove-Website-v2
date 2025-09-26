@@ -11,12 +11,10 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Main Site CSS -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-        <!-- Site CSS (loaded after Bootstrap to override styles safely) -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!-- Animate.css for animations -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         
@@ -52,8 +50,26 @@
             </main>
         </div>
         
-        <!-- Bootstrap 5 JS Bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Custom JavaScript -->
+            <script>
+                // Simple JavaScript for basic functionality
+                function toggleDropdown() {
+                    const dropdown = document.getElementById('userDropdown');
+                    if (dropdown) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    }
+                }
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    const dropdown = document.getElementById('userDropdown');
+                    const userBtn = event.target.closest('.user-btn');
+                    
+                    if (!userBtn && dropdown && dropdown.style.display === 'block') {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            </script>
         
         @stack('scripts')
     </body>

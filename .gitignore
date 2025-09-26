@@ -11,6 +11,9 @@
 .env
 .env.backup
 .env.production
+
+# Database (for Render deployment)
+/database/database.sqlite
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
